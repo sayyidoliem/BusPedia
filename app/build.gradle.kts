@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    kotlin("plugin.serialization") version "2.0.0"
 }
 
 android {
@@ -67,47 +68,29 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 
-//    //for viewmodel
-//    implementation(libs.androidx.lifecycle.lifecycle.viewmodel.compose)
-//
-//    //type-safe http client
-//    implementation("com.squareup.retrofit2:retrofit")
-//
-//    //converter json to gson
-//    implementation(libs.converter.gson)
-//
-//    //for async
-//    implementation(libs.coil.compose)
-//
-//    //for core system adaptive layout
-//    implementation(libs.androidx.adaptive)
-//
-//    //for adaptive layout
-//    implementation(libs.androidx.adaptive.layout)
-//
-//    //for adaptive layout navigation
-//    implementation(libs.androidx.adaptive.navigation)
-//
-//    //for more material icon
-//    implementation (libs.androidx.material.icons.extended)
+    //for more material icon
+    implementation (libs.androidx.material.icons.extended)
 
-//    //for collectAsState with lifecycle
-//    implementation(libs.androidx.lifecycle.runtime.compose)
-
+    //for core system adaptive layout
     implementation(libs.androidx.adaptive)
 
-    implementation(libs.androidx.adaptive.layout)
-
+    //for adaptive layout navigation
     implementation(libs.androidx.adaptive.navigation)
 
     //for network kmp
     implementation (libs.ktor.client.android)
+
+    //for serialization
     implementation (libs.ktor.client.json)
+
+    //for serialization
     implementation (libs.ktor.client.serialization)
+
+    //for logging
     implementation (libs.ktor.client.logging)
 
     //for state wrapper
-    implementation(libs.apiresponsewrapper)
+    implementation (libs.apiresponsewrapper)
 
     //for network
     implementation(libs.retrofit)
@@ -115,8 +98,39 @@ dependencies {
     //for viewmodel
     implementation(libs.androidx.lifecycle.viewmodel.compose)
 
+    //for compose
+    implementation (libs.androidx.lifecycle.runtime.compose)
+
     //converter json to gson
     implementation(libs.converter.gson)
 
+    //for async
     implementation(libs.coil.compose)
+
+    //navigation compose
+    implementation(libs.androidx.navigation.compose)
+
+    //local storage core
+    implementation(libs.kotpref)
+
+    // optional, auto initialization module
+    implementation(libs.initializer)
+
+    // optional, support saving enum value and ordinal
+    implementation(libs.enum.support)
+
+    //okhttp core
+    implementation(libs.okhttp)
+
+    // define a BOM and its version
+    implementation(platform(libs.okhttp.bom))
+
+    // define any required OkHttp artifacts without version
+    implementation(libs.okhttp3.okhttp)
+
+    //interceptor
+    implementation(libs.logging.interceptor)
+
+    //for swipe refresh
+    implementation(libs.accompanist.swiperefresh)
 }

@@ -1,4 +1,4 @@
-package com.olimhousestudio.buspedia.helper
+package com.olimhousestudio.buspedia.utils
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
